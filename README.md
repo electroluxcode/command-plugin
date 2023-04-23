@@ -190,6 +190,15 @@ more refer:http://eslint.cn/
 
 
 
+### CICD
+
+```
+目前这个文件夹是放置一些脚本的。
+包括部署和项目结构优化的脚本
+```
+
+
+
 
 
 ## Developer
