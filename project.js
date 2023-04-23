@@ -5,7 +5,7 @@
 // Object.defineProperty(exports, "__esModule", { value: true });
 
 const path = require('path');
-const handleEvent = require(path.join(__dirname, 'fn', 'handleEvent'));
+const handleEvent = require(path.join(__dirname, 'util', 'handleEvent'));
 
 const { program } = require('commander'); // 命令行
 const inquirer = require('inquirer'); // 输入
@@ -38,6 +38,9 @@ const cmdGroup = {
     if (args.includes('env')) {
       handleEvent.envFn();
     }
+    if(args.includes("cicd")){
+      handleEvent.CICDFn()
+    }
   },
   gui: () => {
     guiFn({
@@ -46,6 +49,7 @@ const cmdGroup = {
       prettierFn: handleEvent.prettierFn,
       npmFn: handleEvent.npmFn,
       envFn: handleEvent.envFn,
+      CICDFn:handleEvent.CICDFn
     });
   },
   ['-v']: () => {
@@ -62,7 +66,7 @@ try {
 
 // 第二种方式 ： 用户选择
 
-function guiFn({ gitFn, prettierFn, eslintFn, npmFn, envFn }) {
+function guiFn({ gitFn, prettierFn, eslintFn, npmFn, envFn,CICDFn }) {
   let version = require(path.join(__dirname, 'package.json')).version;
   // console.log(version, '2');
   program
@@ -92,6 +96,9 @@ function guiFn({ gitFn, prettierFn, eslintFn, npmFn, envFn }) {
               {
                 name: 'test dev pro | 环境区分',
               },
+              {
+                name: 'CICD | 前端示例(要提前ssh连接)',
+              },
             ],
           },
         ])
@@ -117,6 +124,10 @@ function guiFn({ gitFn, prettierFn, eslintFn, npmFn, envFn }) {
           if (paramater['useChoices'].includes('test dev pro | 环境区分')) {
             envFn();
           }
+          if (paramater['useChoices'].includes('CICD | 前端示例(要提前ssh连接)')) {
+            CICDFn();
+          }
+          
           //  spinner.fail(); spinner.succeed();
           spinner.succeed();
           console.log(chalk.green('success！ 项目初始化成功') + '\n');

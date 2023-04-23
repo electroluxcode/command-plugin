@@ -190,6 +190,24 @@ more refer:http://eslint.cn/
 
 
 
+
+
+## Developer
+
+```js
+如果你想添加你自己工程化的东西
+--1.首先将你的文件放进file 文件夹
+--2.修改project.js和util/handleEvent.js里面的文件，将你的方法添加进去
+--3.接下来的测试阶段请输入npm link 
+然后 npm run engineer 
+```
+
+
+
+
+
+
+
 ## Badge
 
 [![Size](https://img.shields.io/static/v1?label=plugin&message=frontEngineerPlugin&color=green)](https://gitee.com/Electrolux)

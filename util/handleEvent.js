@@ -164,3 +164,28 @@ let envFn = () => {
   }
 };
 exports.envFn = envFn;
+
+
+let CICDFn = () => {
+  if (fs.existsSync(path.resolve(process.cwd(), 'CICD'))) {
+    infolog(`CICD文件夹存在 | 现在 进行覆盖操作`);
+  }
+
+  try {
+    // fs.mkdirSync(`.husky`);
+    let originPath = path.resolve(__dirname, '..', 'file', 'CICD'); // 库文件
+
+    let targetPath = path.resolve(process.cwd(), 'CICD'); // 写入工程文件
+    fs.cp(originPath, targetPath, { recursive: true }, (err) => {
+      if (err) {
+        console.error(err);
+      } else {
+        successlog(`CICD => CICD执行成功`);
+      }
+    });
+  } catch (e) {
+    console.error('处理 CICD脚本 失敗，请重试', e.message);
+    process.exit(1);
+  }
+};
+exports.CICDFn = CICDFn;
