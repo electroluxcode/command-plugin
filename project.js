@@ -97,7 +97,7 @@ function guiFn({ gitFn, prettierFn, eslintFn, npmFn, envFn,CICDFn }) {
                 name: 'test dev pro | 环境区分',
               },
               {
-                name: 'CICD | 前端示例(要提前ssh连接)',
+                name: 'CICD | 各种脚本示例',
               },
             ],
           },
@@ -124,7 +124,7 @@ function guiFn({ gitFn, prettierFn, eslintFn, npmFn, envFn,CICDFn }) {
           if (paramater['useChoices'].includes('test dev pro | 环境区分')) {
             envFn();
           }
-          if (paramater['useChoices'].includes('CICD | 前端示例(要提前ssh连接)')) {
+          if (paramater['useChoices'].includes('CICD | 各种脚本示例')) {
             CICDFn();
           }
           
