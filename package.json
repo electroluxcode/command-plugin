@@ -1,0 +1,33 @@
+{
+	"name": "frontengineerplugin",
+	"version": "0.0.29",
+	"main": "project.js",
+	"bin": "project.js",
+	"repository": {
+		"type": "gitee",
+		"url": "https://gitee.com/electrolux/front-engineer-plugin"
+	},
+	"scripts": {
+		"postinstall": "node install.js  ",
+		"version": "frontengineerplugin -v ",
+		"gui": "frontengineerplugin gui",
+		"prepare": "husky install ",
+		"engineer": "frontengineerplugin gui"
+	},
+	"keywords": [
+		"前端工程化"
+	],
+	"author": "Electrolux",
+	"license": "ISC",
+	"description": "前端工程化插件.集成eslint,husky,prettier,eslint,npmrc五个主要功能",
+	"devDependencies": {
+		"chalk": "^4.1.2",
+		"commander": "^9.5.0",
+		"eslint": "^7.32.0",
+		"handlebars": "^4.7.7",
+		"husky": "^8.0.3",
+		"inquirer": "^7.3.3",
+		"ora": "^4.1.1",
+		"prettier": "^2.8.8"
+	}
+}
