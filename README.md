@@ -13,7 +13,7 @@
 begin
 
 ```shell
-npm install frontengineerplugin
+npm install frontengineerplugin -g
 # 第一种方法，推荐：
 npm run  engineer 
 # 第二种方法：不推荐 项目根目录的package.json中输入

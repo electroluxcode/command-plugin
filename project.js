@@ -79,7 +79,7 @@ function guiFn({ gitFn, prettierFn, eslintFn, npmFn, envFn,CICDFn }) {
           {
             type: 'checkbox',
             name: 'useChoices',
-            message: '工程化配置选项：',
+            message: '前端工程化配置选项：',
             choices: [
               {
                 name: 'git(husky) | 提交规范',
