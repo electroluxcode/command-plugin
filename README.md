@@ -18,6 +18,8 @@ npm install frontengineerplugin -g
 npm run  engineer 
 # 第二种方法：不推荐 项目根目录的package.json中输入
 frontengineerplugin install prettier husky env eslint npm
+# 第三种方法：命令行下面 输入
+frontengineerplugin gui
 ```
 
 
