@@ -12,7 +12,9 @@ class myDiv extends HTMLElement {
         super();
         // 这样我们才能够去追加元素
         this.attachShadow({ mode: 'open' })
-
+        this.shouldUpdate= {
+           
+        }
     }
 
     // 重要：生命周期方法 开始
@@ -46,7 +48,11 @@ class myDiv extends HTMLElement {
         if(oldValue){
             switch (attr){
                 case "option":
-                    this.shadowRoot.querySelector(".title").textContent = newValue
+                    // 同步数据，异步数据
+                    this.shadowRoot.querySelector(".title") ? this.shadowRoot.querySelector(".title").textContent = newValue : ""
+                    this.shouldUpdate[".title"] = newValue
+
+                    
             }
         }
         console.log("arrributeChangeCallback",attr,oldValue,newValue)
@@ -98,10 +104,29 @@ class myDiv extends HTMLElement {
             }
         `
         
+        
+
+        console.log(` this.shouldUpdate[".title"]:`, this.shouldUpdate)
+        
+
+
         setTimeout(()=>{
+            // 获取异步数据
+            if(this.shouldUpdate &&  this.shouldUpdate[".title"]){
+                console.log(nodeTemplate.content.querySelector(".title"),this.shouldUpdate[".title"])
+                nodeTemplate.content.querySelector(".title").textContent = this.shouldUpdate[".title"]
+            }
             this.shadowRoot.appendChild(nodeTemplate.content)
             this.shadowRoot.appendChild(nodeStyles)
         },1500)
+
+        // 同步直接拿出来就好了
+        // if(this.shouldUpdate &&  this.shouldUpdate[".title"]){
+        //     console.log(nodeTemplate.content.querySelector(".title"),this.shouldUpdate[".title"])
+        //     nodeTemplate.content.querySelector(".title").textContent = this.shouldUpdate[".title"]
+        // }
+        // this.shadowRoot.appendChild(nodeTemplate.content)
+        // this.shadowRoot.appendChild(nodeStyles)
         
     }
 }

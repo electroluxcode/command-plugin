@@ -264,6 +264,7 @@ let testFn = () => {
 
     // 2.npm 安装 一下  
     execSync(`npm install jest@29 -D`);
+    execSync(`npm install ts-jest@29 -D`);
     execSync(`npm install jest-environment-jsdom@29 -D`);
 
 
@@ -274,6 +275,29 @@ let testFn = () => {
         console.error(err);
       } else {
         successlog("test执行成功 => 现在请看你的你的testCase文件夹,你的script 和 jest 和 jsdom 也已经安装");
+        infolog(`
+        如果你要对ts进行校验,可以参考如下tsconfig.json示例
+        {
+          "compilerOptions": {
+            "target": "ES5",
+            "moduleResolution": "node",
+            "jsx": "react",
+            "esModuleInterop": true,
+            "downlevelIteration": true,
+            "sourceMap": true,
+            "baseUrl": ".",
+            "paths": {
+              "@/*": ["src/*"],
+             
+            },
+            "allowSyntheticDefaultImports": true,
+            "skipLibCheck": true,
+            "declaration": false,
+            "strictNullChecks": true,
+            "importHelpers": true
+          },
+          "exclude": ["node_modules", "lib", "es", "dist", "example"]
+        }`)
       }
     });
   } catch (e) {
