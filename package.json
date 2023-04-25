@@ -1,43 +1,44 @@
 {
-  "name": "frontengineerplugin",
-  "version": "0.0.36",
-  "main": "project.js",
-  "bin": "project.js",
-  "repository": {
-    "type": "gitee",
-    "url": "https://gitee.com/electrolux/front-engineer-plugin"
-  },
-  "scripts": {
-    "postinstall": "node install.js  ",
-    "version": "frontengineerplugin -v ",
-    "prepare": "husky install ",
-    "engineer": "frontengineerplugin gui",
-    "test": "jest file/testCase/commonJS",
-    "collection": "jest file/testCase --coverage",
-    "test_init": "jest --init"
-  },
-  "keywords": [
-    "front",
-    "project",
-    "command",
-    "前端工程化"
-  ],
-  "author": "Electrolux",
-  "license": "ISC",
-  "description": "前端工程化插件.集成eslint,husky,prettier,eslint,npmrc,CICD,testCase,node_proxy 8个主要功能",
-  "devDependencies": {
-    "@types/jest": "^29.5.1",
-    "chalk": "^4.1.2",
-    "commander": "^9.5.0",
-    "eslint": "^7.32.0",
-    "handlebars": "^4.7.7",
-    "husky": "^8.0.3",
-    "i": "^0.3.7",
-    "inquirer": "^7.3.3",
-    "jest": "^29.5.0",
-    "npm": "^9.6.5",
-    "ora": "^4.1.1",
-    "prettier": "^2.8.8",
-    "ts-jest": "^29.1.0"
-  }
+	"name": "frontengineerplugin",
+	"version": "0.0.36",
+	"main": "project.js",
+	"bin": "project.js",
+	"repository": {
+		"type": "gitee",
+		"url": "https://gitee.com/electrolux/front-engineer-plugin"
+	},
+	"scripts": {
+		"postinstall": "node install.js  ",
+		"version": "frontengineerplugin -v ",
+		"prepare": "husky install ",
+		"engineer": "frontengineerplugin gui",
+		"test": "jest file/testCase/commonJS",
+		"collection": "jest file/testCase --coverage",
+		"test_init": "jest --init"
+	},
+	"keywords": [
+		"front",
+		"project",
+		"command",
+		"前端工程化"
+	],
+	"author": "Electrolux",
+	"license": "ISC",
+	"description": "前端工程化插件.集成eslint,husky,prettier,eslint,npmrc,CICD,testCase,node_proxy 8个主要功能",
+	"devDependencies": {
+		"@types/jest": "^29.5.1",
+		"chalk": "^4.1.2",
+		"commander": "^9.5.0",
+		"eslint": "^7.32.0",
+		"handlebars": "^4.7.7",
+		"husky": "^8.0.3",
+		"i": "^0.3.7",
+		"inquirer": "^7.3.3",
+		"jest": "^29.5.0",
+		"jest-environment-jsdom": "^29.5.0",
+		"npm": "^9.6.5",
+		"ora": "^4.1.1",
+		"prettier": "^2.8.8",
+		"ts-jest": "^29.1.0"
+	}
 }

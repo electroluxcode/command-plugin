@@ -305,4 +305,4 @@ let testFn = () => {
     process.exit(1);
   }
 };
-exports.gitFn = testFn;
+exports.testFn = testFn;

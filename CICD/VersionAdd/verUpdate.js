@@ -4,8 +4,8 @@ const fs = require('fs')
 
 console.log('------------ 开发自动升级package.json版本号  ------------');
 
-const projectPath = path.join(__dirname, './')
-const packageJsonStr = fs.readFileSync('./package.json').toString()
+
+const packageJsonStr = fs.readFileSync(path.resolve(process.cwd(), "package.json")).toString()
 try {
     const packageJson = JSON.parse(packageJsonStr)
     // 升级版本号
@@ -22,7 +22,7 @@ try {
     }
     const newVersion = arr.join('.')
     packageJson.version = newVersion
-    fs.writeFileSync('./package.json', JSON.stringify(packageJson, null, '\t'))
+    fs.writeFileSync(path.resolve(process.cwd(), "package.json"), JSON.stringify(packageJson, null, '\t'))
     // add new package.json
     execSync(`git add package.json`)
 } catch (e) {
