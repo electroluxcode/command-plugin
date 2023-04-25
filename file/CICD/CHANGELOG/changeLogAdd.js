@@ -47,7 +47,7 @@ if(isAutoUpDate){
       packageJson.version = newVersion
       fs.writeFileSync(path.resolve(process.cwd(), "package.json"), JSON.stringify(packageJson, null, '\t'))
       // add new package.json
-      // execSync(`git add package.json`)
+      execSync(`git add package.json`)
   } catch (e) {
       console.error('处理package.json失败，请重试', e.message);
       process.exit(1)
@@ -104,6 +104,7 @@ ${commitMsg.split(":")[1]}
     successlog(
       "cd .. && node  file/CICD/CHANGELOG/changeLogAdd.js执行成功 => 现在你的CHANGELOG.md上面添加了文件了"
     );
+    execSync(`git add CHANGELOG.md`)
   } catch (e) {
     console.error("处理package.json失败，请重试", e.message);
     process.exit(1);
