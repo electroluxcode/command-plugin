@@ -1,7 +1,7 @@
-const fs = require('fs');
-const execSync = require('child_process').execSync;
-const path = require('path');
-const chalk = require('chalk'); // console.log 的 颜色
+const fs = require("fs");
+const execSync = require("child_process").execSync;
+const path = require("path");
+const chalk = require("chalk"); // console.log 的 颜色
 
 const infolog = (msg) => {
   console.log(chalk.grey(`frontengineerplugin - ${msg}`));
@@ -12,87 +12,107 @@ const successlog = (msg) => {
 
 //  处理添加husky
 let gitFn = () => {
-  if (fs.existsSync(path.resolve(process.cwd(), '.husky'))) {
+  if (fs.existsSync(path.resolve(process.cwd(), ".husky"))) {
     infolog(`.husky存在 | 现在 进行覆盖操作`);
   }
-  const packageJsonStr = fs.readFileSync(path.resolve(process.cwd(), 'package.json')).toString();
+  const packageJsonStr = fs
+    .readFileSync(path.resolve(process.cwd(), "package.json"))
+    .toString();
   try {
     const packageJson = JSON.parse(packageJsonStr);
-    if (packageJson.scripts['prepare']) {
-      infolog('prepare script 重复 | 现在 进行覆盖操作');
+    if (packageJson.scripts["prepare"]) {
+      infolog("prepare script 重复 | 现在 进行覆盖操作");
     } else {
-      packageJson.scripts['prepare'] = 'husky install ';
+      packageJson.scripts["prepare"] = "husky install ";
     }
 
     fs.writeFileSync(
-      path.resolve(process.cwd(), 'package.json'),
-      JSON.stringify(packageJson, null, '\t'),
+      path.resolve(process.cwd(), "package.json"),
+      JSON.stringify(packageJson, null, "\t")
     );
-    execSync(`npm install husky@8.0.3 -D"`);
+    execSync(`npm install husky@8.0.3 -D`);
     execSync(`npm run prepare`);
     // fs.mkdirSync(`.husky`);
 
-    let originPath = path.resolve(__dirname, '..', 'file', 'git', 'commit-msg'); // 库文件
+    let originPath = path.resolve(__dirname, "..", "file", "git", "commit-msg"); // 库文件
 
-    let targetPath = path.resolve(process.cwd(), '.husky', 'commit-msg'); // 写入工程文件
+    let targetPath = path.resolve(process.cwd(), ".husky", "commit-msg"); // 写入工程文件
     fs.cp(originPath, targetPath, (err) => {
       if (err) {
         console.error(err);
       } else {
-        successlog('husky执行成功 => 现在你的git commit 加上了限制');
+        successlog("husky执行成功 => 现在你的git commit 加上了限制");
       }
     });
   } catch (e) {
-    console.error('处理package.json失败，请重试', e.message);
+    console.error("处理package.json失败，请重试", e.message);
     process.exit(1);
   }
 };
 exports.gitFn = gitFn;
 
 let eslintFn = () => {
-  if (fs.existsSync(path.resolve(process.cwd(), '.eslintrc.js'))) {
+  if (fs.existsSync(path.resolve(process.cwd(), ".eslintrc.js"))) {
     infolog(`.eslintrc.js存在 | 现在 进行覆盖操作`);
   }
   try {
-    execSync(`npm install eslint@7 -D"`);
+    execSync(`npm install eslint@7 -D`);
 
-    let originPath = path.resolve(__dirname, '..', 'file', 'eslint', '.eslintrc.js'); // 库文件
-    let targetPath = path.resolve(process.cwd(), '.eslintrc.js'); // 写入工程文件
+    let originPath = path.resolve(
+      __dirname,
+      "..",
+      "file",
+      "eslint",
+      ".eslintrc.js"
+    ); // 库文件
+    let targetPath = path.resolve(process.cwd(), ".eslintrc.js"); // 写入工程文件
     fs.cp(originPath, targetPath, (err) => {
       if (err) {
         console.error(err);
       }
     });
-    let originPathIgnore = path.resolve(__dirname, '..', 'file', 'eslint', '.eslintignore'); // 库文件
-    let targetPathIgnore = path.resolve(process.cwd(), '.eslintignore'); // 写入工程文件
+    let originPathIgnore = path.resolve(
+      __dirname,
+      "..",
+      "file",
+      "eslint",
+      ".eslintignore"
+    ); // 库文件
+    let targetPathIgnore = path.resolve(process.cwd(), ".eslintignore"); // 写入工程文件
     fs.cp(originPathIgnore, targetPathIgnore, (err) => {
       if (err) {
         console.error(err);
       } else {
         successlog(
-          `eslint脚本执行成功 => 如果你的vscode中没有安装eslint,那么需要您在vscode的扩展安装 eslint后重启项目`,
+          `eslint脚本执行成功 => 如果你的vscode中没有安装eslint,那么需要您在vscode的扩展安装 eslint后重启项目`
         );
       }
     });
   } catch (e) {
-    console.error('处理Eslint失敗，请重试', e.message);
+    console.error("处理Eslint失敗，请重试", e.message);
     process.exit(1);
   }
 };
 exports.eslintFn = eslintFn;
 
 let prettierFn = () => {
-  if (fs.existsSync(path.resolve(process.cwd(), '.prettierrc.js'))) {
+  if (fs.existsSync(path.resolve(process.cwd(), ".prettierrc.js"))) {
     infolog(`.prettierrc存在 | 现在 进行覆盖操作`);
   }
 
   try {
-    execSync(`npm install prettier@2 -D"`);
+    execSync(`npm install prettier@2 -D`);
 
     // fs.mkdirSync(`.husky`);
-    let originPath = path.resolve(__dirname, '..', 'file', 'prettier', '.prettierrc.js'); // 库文件
+    let originPath = path.resolve(
+      __dirname,
+      "..",
+      "file",
+      "prettier",
+      ".prettierrc.js"
+    ); // 库文件
 
-    let targetPath = path.resolve(process.cwd(), '.prettierrc.js'); // 写入工程文件
+    let targetPath = path.resolve(process.cwd(), ".prettierrc.js"); // 写入工程文件
     fs.cp(originPath, targetPath, (err) => {
       if (err) {
         console.error(err);
@@ -100,33 +120,41 @@ let prettierFn = () => {
         // successlog(`eslint执行成功-如果你的vscode中没有安装eslint,那么需要您在vscode的扩展安装 eslint后重启项目`)
       }
     });
-    let originPathIgnore = path.resolve(__dirname, '..', 'file', 'prettier', '.prettierignore'); // 库文件
+    let originPathIgnore = path.resolve(
+      __dirname,
+      "..",
+      "file",
+      "prettier",
+      ".prettierignore"
+    ); // 库文件
 
-    let targetPathIgnore = path.resolve(process.cwd(), '.prettierignore'); // 写入工程文件
+    let targetPathIgnore = path.resolve(process.cwd(), ".prettierignore"); // 写入工程文件
     fs.cp(originPathIgnore, targetPathIgnore, (err) => {
       if (err) {
         console.error(err);
       } else {
-        successlog(`prettier脚本执行成功 => 如果你的vscode中没有安装prettier,那么需要您在vscode的扩展安装 prettier后重启项目。注意我们需要在vscode中 ctrl(command) + shift + p 搜索 format selection with 接着 点最下面的 configue default format  选择 prettier format`);
+        successlog(
+          `prettier脚本执行成功 => 如果你的vscode中没有安装prettier,那么需要您在vscode的扩展安装 prettier后重启项目。注意我们需要在vscode中 ctrl(command) + shift + p 搜索 format selection with 接着 点最下面的 configue default format  选择 prettier format`
+        );
       }
     });
   } catch (e) {
-    console.error('处理Prettier失敗，请重试', e.message);
+    console.error("处理Prettier失敗，请重试", e.message);
     process.exit(1);
   }
 };
 exports.prettierFn = prettierFn;
 
 let npmFn = () => {
-  if (fs.existsSync(path.resolve(process.cwd(), '.npmrc'))) {
+  if (fs.existsSync(path.resolve(process.cwd(), ".npmrc"))) {
     infolog(`.npmrc存在 | 现在 进行覆盖操作`);
   }
 
   try {
     // fs.mkdirSync(`.husky`);
-    let originPath = path.resolve(__dirname, '..', 'file', 'npmConfig', '.np'); // 库文件
+    let originPath = path.resolve(__dirname, "..", "file", "npmConfig", ".np"); // 库文件
 
-    let targetPath = path.resolve(process.cwd(), '.npmrc'); // 写入工程文件
+    let targetPath = path.resolve(process.cwd(), ".npmrc"); // 写入工程文件
     fs.cp(originPath, targetPath, (err) => {
       if (err) {
         console.error(err);
@@ -135,22 +163,22 @@ let npmFn = () => {
       }
     });
   } catch (e) {
-    console.error('处理.npmrc失敗，请重试', e.message);
+    console.error("处理.npmrc失敗，请重试", e.message);
     process.exit(1);
   }
 };
 exports.npmFn = npmFn;
 
 let envFn = () => {
-  if (fs.existsSync(path.resolve(process.cwd(), '.npmrc'))) {
+  if (fs.existsSync(path.resolve(process.cwd(), ".npmrc"))) {
     infolog(`envConfig存在 | 现在 进行覆盖操作`);
   }
 
   try {
     // fs.mkdirSync(`.husky`);
-    let originPath = path.resolve(__dirname, '..', 'file', 'envConfig'); // 库文件
+    let originPath = path.resolve(__dirname, "..", "file", "envConfig"); // 库文件
 
-    let targetPath = path.resolve(process.cwd(), 'envConfig'); // 写入工程文件
+    let targetPath = path.resolve(process.cwd(), "envConfig"); // 写入工程文件
     fs.cp(originPath, targetPath, { recursive: true }, (err) => {
       if (err) {
         console.error(err);
@@ -159,23 +187,22 @@ let envFn = () => {
       }
     });
   } catch (e) {
-    console.error('处理 环境区分脚本 失敗，请重试', e.message);
+    console.error("处理 环境区分脚本 失敗，请重试", e.message);
     process.exit(1);
   }
 };
 exports.envFn = envFn;
 
-
 let CICDFn = () => {
-  if (fs.existsSync(path.resolve(process.cwd(), 'CICD'))) {
+  if (fs.existsSync(path.resolve(process.cwd(), "CICD"))) {
     infolog(`CICD文件夹存在 | 现在 进行覆盖操作`);
   }
 
   try {
     // fs.mkdirSync(`.husky`);
-    let originPath = path.resolve(__dirname, '..', 'file', 'CICD'); // 库文件
+    let originPath = path.resolve(__dirname, "..", "file", "CICD"); // 库文件
 
-    let targetPath = path.resolve(process.cwd(), 'CICD'); // 写入工程文件
+    let targetPath = path.resolve(process.cwd(), "CICD"); // 写入工程文件
     fs.cp(originPath, targetPath, { recursive: true }, (err) => {
       if (err) {
         console.error(err);
@@ -184,8 +211,74 @@ let CICDFn = () => {
       }
     });
   } catch (e) {
-    console.error('处理 CICD脚本 失敗，请重试', e.message);
+    console.error("处理 CICD脚本 失敗，请重试", e.message);
     process.exit(1);
   }
 };
 exports.CICDFn = CICDFn;
+
+let corFn = () => {
+  if (fs.existsSync(path.resolve(process.cwd(), "cor"))) {
+    infolog(`cor存在 | 现在 进行覆盖操作`);
+  }
+
+  try {
+    // fs.mkdirSync(`.husky`);
+    let originPath = path.resolve(__dirname, "..", "file", "cors"); // 库文件
+
+    let targetPath = path.resolve(process.cwd(), "cors"); // 写入工程文件
+    fs.cp(originPath, targetPath, { recursive: true }, (err) => {
+      if (err) {
+        console.error(err);
+      } else {
+        successlog(`cors => cors示例执行成功`);
+      }
+    });
+  } catch (e) {
+    console.error("处理 cors示例 失敗，请重试", e.message);
+    process.exit(1);
+  }
+};
+exports.corFn = corFn;
+
+//  处理添加test
+let testFn = () => {
+  if (fs.existsSync(path.resolve(process.cwd(), "testCase"))) {
+    infolog(`testCase存在 | 现在 进行覆盖操作`);
+  }
+  const packageJsonStr = fs
+    .readFileSync(path.resolve(process.cwd(), "package.json"))
+    .toString();
+  try {
+    // 1.覆盖命令
+    const packageJson = JSON.parse(packageJsonStr);
+    if (packageJson.scripts["test"]) {
+      infolog("test script 重复 | 现在 进行覆盖操作");
+    } else {
+      packageJson.scripts["test"] = "jest file/testCase --coverage ";
+    }
+    fs.writeFileSync(
+      path.resolve(process.cwd(), "package.json"),
+      JSON.stringify(packageJson, null, "\t")
+    );
+
+    // 2.npm 安装 一下  
+    execSync(`npm install jest@29 -D`);
+    execSync(`npm install jest-environment-jsdom@29 -D`);
+
+
+    let originPath = path.resolve(__dirname, "..", "file", "testCase"); // 库文件
+    let targetPath = path.resolve(process.cwd(), "testCase"); // 写入工程文件
+    fs.cp(originPath, targetPath, (err) => {
+      if (err) {
+        console.error(err);
+      } else {
+        successlog("test执行成功 => 现在请看你的你的testCase文件夹,你的script 和 jest 和 jsdom 也已经安装");
+      }
+    });
+  } catch (e) {
+    console.error("处理package.json失败，请重试", e.message);
+    process.exit(1);
+  }
+};
+exports.gitFn = testFn;

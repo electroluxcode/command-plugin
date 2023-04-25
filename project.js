@@ -41,6 +41,9 @@ const cmdGroup = {
     if(args.includes("cicd")){
       handleEvent.CICDFn()
     }
+    if(args.includes("cor")){
+      handleEvent.corFn()
+    }
   },
   gui: () => {
     guiFn({
@@ -49,7 +52,8 @@ const cmdGroup = {
       prettierFn: handleEvent.prettierFn,
       npmFn: handleEvent.npmFn,
       envFn: handleEvent.envFn,
-      CICDFn:handleEvent.CICDFn
+      CICDFn:handleEvent.CICDFn,
+      corFn:handleEvent.corFn
     });
   },
   ['-v']: () => {
@@ -66,7 +70,7 @@ try {
 
 // 第二种方式 ： 用户选择
 
-function guiFn({ gitFn, prettierFn, eslintFn, npmFn, envFn,CICDFn }) {
+function guiFn({ gitFn, prettierFn, eslintFn, npmFn, envFn,CICDFn,corFn ,testFn}) {
   let version = require(path.join(__dirname, 'package.json')).version;
   // console.log(version, '2');
   program
@@ -79,6 +83,7 @@ function guiFn({ gitFn, prettierFn, eslintFn, npmFn, envFn,CICDFn }) {
           {
             type: 'checkbox',
             name: 'useChoices',
+            pageSize: 20,
             message: '前端工程化配置选项：',
             choices: [
               {
@@ -99,6 +104,14 @@ function guiFn({ gitFn, prettierFn, eslintFn, npmFn, envFn,CICDFn }) {
               {
                 name: 'CICD | 各种脚本示例',
               },
+              {
+                name: 'Test case | jest 通用测试用例',
+              },
+              {
+                name: 'cors | nginx && express(写plugin的工具)',
+              },
+              
+         
             ],
           },
         ])
@@ -127,7 +140,13 @@ function guiFn({ gitFn, prettierFn, eslintFn, npmFn, envFn,CICDFn }) {
           if (paramater['useChoices'].includes('CICD | 各种脚本示例')) {
             CICDFn();
           }
-          
+          if (paramater['useChoices'].includes('cors | nginx && express(写plugin的工具)')) {
+            corFn();
+          }
+
+          if (paramater['useChoices'].includes('Test case | jest 通用测试用例')) {
+            testFn();
+          }
           //  spinner.fail(); spinner.succeed();
           spinner.succeed();
           console.log(chalk.green('success！ 项目初始化成功') + '\n');
