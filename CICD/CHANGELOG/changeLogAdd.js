@@ -17,41 +17,13 @@ let time = [date.getFullYear(), date.getMonth(), date.getDay()];
 let timeDay = [date.getHours(), date.getMinutes()];
 let handleTime = time.join("/") + "  " + timeDay.join(":");
 
-let arguments = process.argv.at(-1);
-console.log(arguments);
-let commitMsg = arguments;
+
+let argument = process.argv.at(-1);
+console.log(argument);
+let commitMsg = argument;
 
 
-// 是否自动增加版本号
-let isAutoUpDate = true;
 
-
-if(isAutoUpDate){
-  const packageJsonStr = fs.readFileSync(path.resolve(process.cwd(), "package.json")).toString()
-  try {
-      const packageJson = JSON.parse(packageJsonStr)
-      // 升级版本号
-      const arr = packageJson.version.split('.')
-      if (arr[2] < 9) {
-          arr[2] = +arr[2] + 1
-      } else if (arr[1] < 9) {
-          arr[1] = +arr[1] + 1
-          arr[2] = 0
-      } else { 
-          arr[0] = +arr[0] + 1
-          arr[1] = 0
-          arr[2] = 0 
-      }
-      const newVersion = arr.join('.')
-      packageJson.version = newVersion
-      fs.writeFileSync(path.resolve(process.cwd(), "package.json"), JSON.stringify(packageJson, null, '\t'))
-      // add new package.json
-      // execSync(`git add package.json`)
-  } catch (e) {
-      console.error('处理package.json失败，请重试', e.message);
-      process.exit(1)
-  }
-}
 
 
 let changeLogFn = (commitMsg, handleTime) => {
@@ -101,8 +73,9 @@ ${commitMsg.split(":")[1]}
     // execSync(`npm install jest-environment-jsdom@29 -D`);
 
     successlog(
-      "cd .. && node  file/CICD/CHANGELOG/changeLogAdd.js执行成功 => 现在你的CHANGELOG.md上面添加了文件了"
+      "node  file/CICD/CHANGELOG/changeLogAdd.js执行成功 => 现在你的CHANGELOG.md上面添加了文件了"
     );
+    execSync(`git add CHANGELOG.md`)
   } catch (e) {
     console.error("处理package.json失败，请重试", e.message);
     process.exit(1);
@@ -110,3 +83,36 @@ ${commitMsg.split(":")[1]}
 };
 
 changeLogFn(commitMsg, handleTime);
+
+
+
+// 是否自动增加版本号
+let isAutoUpDate = false;
+
+
+if(isAutoUpDate){
+  const packageJsonStr = fs.readFileSync(path.resolve(process.cwd(), "package.json")).toString()
+  try {
+      const packageJson = JSON.parse(packageJsonStr)
+      // 升级版本号
+      const arr = packageJson.version.split('.')
+      if (arr[2] < 9) {
+          arr[2] = +arr[2] + 1
+      } else if (arr[1] < 9) {
+          arr[1] = +arr[1] + 1
+          arr[2] = 0
+      } else { 
+          arr[0] = +arr[0] + 1
+          arr[1] = 0
+          arr[2] = 0 
+      }
+      const newVersion = arr.join('.')
+      packageJson.version = newVersion
+      fs.writeFileSync(path.resolve(process.cwd(), "package.json"), JSON.stringify(packageJson, null, '\t'))
+      // add new package.json
+      execSync(`git add package.json`)
+  } catch (e) {
+      console.error('处理package.json失败，请重试', e.message);
+      process.exit(1)
+  }
+}
