@@ -54,9 +54,8 @@ if __name__=="__main__":
             if (check_commit_line1_format(line)):
                 # 脚手架选择CICD 就可以 开启，作用是自动生成CHANGELOG 并且写入文件
                 if True:
-                    os.system("cd .. && node  file/CICD/CHANGELOG/changeLogAdd.js " + line)
+                    os.system("node  CICD/CHANGELOG/changeLogAdd.js " + line)
                 sys.exit(0)
             else:
                 print(TIPS_INFO)
-                
                 sys.exit(1)
