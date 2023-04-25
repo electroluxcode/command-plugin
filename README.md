@@ -33,6 +33,8 @@ frontengineerplugin gui
 {
 	"engineer":"frontengineerplugin gui "
 }
+
+# 然后运行 npm run engineer
 ```
 
 
@@ -201,6 +203,29 @@ more refer:http://eslint.cn/
 
 
 
+### Test Case
+
+```
+里面分成两个文件夹
+
+主要是有工具类js ，ts 的测试。
+以及web-component之类的测试
+```
+
+
+
+
+
+### NODE proxy
+
+```
+集成了三种方法来做跨域。一般如果你做脚本的话，可以下载下来做插件的端口转发
+```
+
+
+
+
+
 
 
 ## Developer
@@ -215,7 +240,22 @@ more refer:http://eslint.cn/
 
 
 
+## Example
 
+### COMMIT  and CHANGELOG
+
+```SHELL
+# first 
+npm run frontengineerplugin
+# THEN 
+select CICD and husky
+# THEN 
+GO to dir .husky/commit-msg 
+然后把 os.system("node  CICD/CHANGELOG/changeLogAdd.js " + line) 前面的判断符号改成 true
+# THEN
+GO to dir CICD/CHANGELOG/changeLogAdd 
+然后 把 isAutoUpDate 改成 true
+```
 
 
 

@@ -17,9 +17,10 @@ let time = [date.getFullYear(), date.getMonth(), date.getDay()];
 let timeDay = [date.getHours(), date.getMinutes()];
 let handleTime = time.join("/") + "  " + timeDay.join(":");
 
-let arguments = process.argv.at(-1);
-console.log(arguments);
-let commitMsg = arguments;
+
+let argument = process.argv.at(-1);
+console.log(argument);
+let commitMsg = argument;
 
 
 // 是否自动增加版本号

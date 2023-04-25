@@ -13,7 +13,7 @@ const successlog = (msg) => {
 //  处理添加husky
 let gitFn = () => {
   if (fs.existsSync(path.resolve(process.cwd(), ".husky"))) {
-    infolog(`.husky存在 | 现在 进行覆盖操作`);
+    infolog(`.husky存在 | 现在进行覆盖操作`);
   }
   const packageJsonStr = fs
     .readFileSync(path.resolve(process.cwd(), "package.json"))
@@ -21,11 +21,11 @@ let gitFn = () => {
   try {
     const packageJson = JSON.parse(packageJsonStr);
     if (packageJson.scripts["prepare"]) {
-      infolog("prepare script 重复 | 现在 进行覆盖操作");
+      infolog("prepare script 重复 | 请手动在package.json 添加script |  prepare: husky install");
     } else {
       packageJson.scripts["prepare"] = "husky install ";
     }
-
+    
     fs.writeFileSync(
       path.resolve(process.cwd(), "package.json"),
       JSON.stringify(packageJson, null, "\t")
@@ -250,10 +250,10 @@ let testFn = () => {
     .readFileSync(path.resolve(process.cwd(), "package.json"))
     .toString();
   try {
-    // 1.覆盖命令
+    // 1.覆盖命令 
     const packageJson = JSON.parse(packageJsonStr);
     if (packageJson.scripts["test"]) {
-      infolog("test script 重复 | 现在 进行覆盖操作");
+      infolog("test script 重复 |  请手动在package.json 添加script |  test: jest file/testCase --coverage");
     } else {
       packageJson.scripts["test"] = "jest file/testCase --coverage ";
     }
@@ -268,13 +268,26 @@ let testFn = () => {
     execSync(`npm install jest-environment-jsdom@29 -D`);
 
 
-    let originPath = path.resolve(__dirname, "..", "file", "testCase"); // 库文件
-    let targetPath = path.resolve(process.cwd(), "testCase"); // 写入工程文件
-    fs.cp(originPath, targetPath, (err) => {
+    // 3.复制 jest.config.js 过去
+    let originJestPath = path.resolve(__dirname, "..", "file", "testCase","jest.config.js"); // 库文件
+    let targetJestPath = path.resolve(process.cwd(), "jest.config.js"); // 写入工程文件
+    fs.cp(originJestPath, targetJestPath, (err) => {
       if (err) {
         console.error(err);
       } else {
-        successlog("test执行成功 => 现在请看你的你的testCase文件夹,你的script 和 jest 和 jsdom 也已经安装");
+        successlog("test执行成功 =>jest.config.js迁移成功");
+       
+      }
+    });
+
+    // 3.复制 示例文件夹 过去
+    let originPath = path.resolve(__dirname, "..", "file", "testCase"); // 库文件
+    let targetPath = path.resolve(process.cwd(), "testCase"); // 写入工程文件
+    fs.cp(originPath, targetPath,  { recursive: true },(err) => {
+      if (err) {
+        console.error(err);
+      } else {
+        successlog("test执行成功 => 现在你已经有了testCase文件夹,你的script 和 jest 和 jsdom 也已经安装");
         infolog(`
         如果你要对ts进行校验,可以参考如下tsconfig.json示例
         {

@@ -37,7 +37,7 @@ feat:类型是feat表示在代码库中新增了一个功能 git commit -m "feat
 def check_commit_line1_format(msg):
     print(msg)
     # regOther = r'\S{5,} (.){10,100}' ^fix:|^feat: ((修复了)|(增加了))(.){2,100}功能
-    regOther = r'^fix|^feat|^docs|^style|^refactor|^test|^chore|^build|^ci|^update|^test|^improve|^perf|^revert (.){1,100}'
+    regOther = r'^fix:|^feat:|^docs:|^style:|^refactor:|^test:|^chore:|^build:|^ci:|^update:|^test:|^improve:|^perf:|^revert: (.){1,100}'
     matchObj = re.match(regOther, msg)
     return matchObj
 
@@ -53,8 +53,8 @@ if __name__=="__main__":
         for line in f:
             if (check_commit_line1_format(line)):
                 # 脚手架选择CICD 就可以 开启，作用是自动生成CHANGELOG 并且写入文件
-                if True:
-                    os.system("frontengineerplugin - cd .. && node  file/CICD/CHANGELOG/changeLogAdd.js " + line)
+                if False:
+                    os.system("node  CICD/CHANGELOG/changeLogAdd.js " + line)
                 sys.exit(0)
             else:
                 print(TIPS_INFO)

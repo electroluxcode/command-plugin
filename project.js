@@ -53,7 +53,8 @@ const cmdGroup = {
       npmFn: handleEvent.npmFn,
       envFn: handleEvent.envFn,
       CICDFn:handleEvent.CICDFn,
-      corFn:handleEvent.corFn
+      corFn:handleEvent.corFn,
+      testFn:handleEvent.testFn
     });
   },
   ['-v']: () => {
