@@ -32,7 +32,10 @@
 		"front",
 		"project",
 		"command",
-		"前端工程化"
+		"前端工程化",
+		"eslint",
+		"prettier",
+		"jest"
 	],
 	"author": "Electrolux",
 	"license": "ISC",

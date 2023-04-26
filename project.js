@@ -17,7 +17,7 @@ const log = (msg) => console.log(`frontengineerplugin - ${msg}`);
 let [, , cmd, ...args] = process.argv;
 
 if(!cmd){
-  log("frontengineerplugin gui可以直接运行")
+  log("script 中 添加 frontengineerplugin gui 运行 | 或者直接运行 frontengineerplugin gui ")
   process.exit(1);
 }
 
@@ -158,7 +158,7 @@ function guiFn({ gitFn, prettierFn, eslintFn, npmFn, envFn,CICDFn,corFn ,testFn,
           }
           if (paramater['useChoices'].includes('README | 生成标准格式的README')) {
             let res = await readmeFn();
-            console.log(chalk.red(res ) + '\n');
+            console.log(chalk.green("frontengineerplugin - ",res ) + '\n');
           }
 
 

@@ -1,6 +1,27 @@
-# frontEngineerPlugin
+<div align="center"><h1>
+<br/>
+🤖
+<br />
+frontengineerplugin
+<br />
+<br />
+</h1>
+<sup>
+<br />
+<br />
+<a href="https://gitee.com/electrolux/front-engineer-plugin"><img src="https://img.shields.io/static/v1?label=version&message=v0.2.7&color=blue" alt="npm package" /></a><a href=https://gitee.com/Electrolux><img src="https://img.shields.io/static/v1?label=Gitee&message=Electrolux&color=red" alt="temp" /></a><a href=https://space.bilibili.com/286773126><img src="https://img.shields.io/static/v1?label=Bili&message=Electrolux&color=Pink" alt="temp" /></a>
+<a href="https://gitee.com/electrolux/front-engineer-plugin">   <img src="https://img.shields.io/static/v1?label=Contribute&message=welcome&color=yellow" alt="demos" /></a>
+<br />
+</a>
+<br />
+Translations: <a href="">🇨🇳 汉语</a>
+</sup>
 
-[![gitee](https://img.shields.io/static/v1?label=Gitee&message=Electrolux&color=blue)](https://gitee.com/Electrolux)[![bili](https://img.shields.io/static/v1?label=Bili&message=Electrolux&color=yellow)](https://space.bilibili.com/286773126)[![Contribute](https://img.shields.io/static/v1?label=Contribute&message=welcome&color=red)](https://gitee.com/Electrolux)[![Size](https://img.shields.io/static/v1?label=Size&message=1MB&color=green)](https://gitee.com/Electrolux)
+
+
+
+
+
 
 
 
@@ -194,7 +215,7 @@ more refer:http://eslint.cn/
 
 
 
-### CICD
+### cicd
 
 ```
 目前这个文件夹是放置一些脚本的。
@@ -203,10 +224,10 @@ more refer:http://eslint.cn/
 
 
 
-### Test Case
+### test
 
 ```
-里面分成两个文件夹
+里面分成两个文件夹.主要使用jest做的
 
 主要是有工具类js ，ts 的测试。
 以及web-component之类的测试
@@ -216,7 +237,7 @@ more refer:http://eslint.cn/
 
 
 
-### NODE proxy
+### node_proxy
 
 ```
 集成了三种方法来做跨域。一般如果你做脚本的话，可以下载下来做插件的端口转发
@@ -224,7 +245,13 @@ more refer:http://eslint.cn/
 
 
 
+### standard_readme
 
+```
+帮助你生成标准 README.md 的 东西。
+注意。提前要填写好你package.json 的name version homepage 三个字段
+然后注意 如果项目中有 README.md 需要先删掉
+```
 
 
 
@@ -275,38 +302,7 @@ frontEngineerPlugin is developed by me. Please use frontEngineerPlugin, star it 
 
 
 
-<div align="center">
-  <h1>
-    <br/>
-    <br/>
-    👍
-    <br />
-    react-use
-    <br />
-    <br />
-    <br />
-    <br />
-  </h1>
-  <sup>
-    <br />
-    <br />
-    <a href="">
-       <img src="https://img.shields.io/npm/v/frontmessageplugin.svg" alt="npm package" />
-    </a>
-    <a href="">
-      <img src="https://img.shields.io/static/v1?label=Gitee&message=Electrolux&color=red"  />
-    </a>
-    <a href="">
-      <img src="https://img.shields.io/npm/dm/frontmessageplugin.svg" />
-    </a>
-    <a href="">
-      <img src="https://img.shields.io/static/v1?label=Bili&message=Electrolux&color=yellow" alt="demos" />
-    </a>
-    <br />
-    </a>.
-    <br />
-    Translations: <a href="">🇨🇳 汉语</a>
-  </sup>
+
 
 
 
