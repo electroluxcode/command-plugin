@@ -55,7 +55,7 @@ if __name__=="__main__":
                 # 脚手架选择CICD 就可以 开启，作用是自动生成CHANGELOG 并且写入文件
                 if True:
                     os.system("node  CICD/CHANGELOG/changeLogAdd.js " + line)
-                if True:
+                if False:
                     os.system("node CICD/readmeUpdate/readmeUpdate.js" )
                     
                 sys.exit(0)

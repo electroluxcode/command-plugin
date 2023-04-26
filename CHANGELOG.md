@@ -1,6 +1,13 @@
 # CHANGELOG 
 
 
+## version:0.1.13-commit:2023/3/3  20:23 
+### fix 
+
+解决生成readme文件时候package.json校验的bug
+
+
+
 ## version:0.1.12-commit:2023/3/3  19:56 
 ### feat 
 
