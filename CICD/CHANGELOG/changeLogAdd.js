@@ -91,7 +91,7 @@ changeLogFn(commitMsg, handleTime);
 
 
 // 是否自动增加版本号
-let isAutoUpDate = false;
+let isAutoUpDate = true;
 
 
 if(isAutoUpDate){
