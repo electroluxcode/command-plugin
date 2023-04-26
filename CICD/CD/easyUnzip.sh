@@ -1,1 +1,0 @@
-unzip -o /root/project/dist.zip -d /root/project/

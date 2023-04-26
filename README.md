@@ -3,23 +3,20 @@
 🤖
 <br />
 frontengineerplugin
-<br />
-<br />
+<br /><br />
 </h1>
 <sup>
 <br />
 <br />
-<a href="https://gitee.com/electrolux/front-engineer-plugin"><img src="https://img.shields.io/static/v1?label=version&message=v0.2.7&color=blue" alt="npm package" /></a><a href=https://gitee.com/Electrolux><img src="https://img.shields.io/static/v1?label=Gitee&message=Electrolux&color=red" alt="temp" /></a><a href=https://space.bilibili.com/286773126><img src="https://img.shields.io/static/v1?label=Bili&message=Electrolux&color=Pink" alt="temp" /></a>
-<a href="https://gitee.com/electrolux/front-engineer-plugin">   <img src="https://img.shields.io/static/v1?label=Contribute&message=welcome&color=yellow" alt="demos" /></a>
+<a href="https://gitee.com/electrolux/front-engineer-plugin"><img src="https://img.shields.io/static/v1?label=version&message=v0.1.7&color=blue" alt="npm package" /></a><a href=https://gitee.com/Electrolux><img src="https://img.shields.io/static/v1?label=Gitee&message=Electrolux&color=red" alt="temp" /></a><a href=https://space.bilibili.com/286773126><img src="https://img.shields.io/static/v1?label=Bili&message=Electrolux&color=Pink" alt="temp" /></a>
+<a href="https://gitee.com/electrolux/front-engineer-plugin">   <img src="https://img.shields.io/static/v1?label=Author&message=Electrolux&color=yellow" alt="demos" /></a>
+<a href="https://gitee.com/electrolux/front-engineer-plugin">   <img src="https://img.shields.io/static/v1?label=Contribute&message=welcome&color=green" alt="demos" /></a>
 <br />
 </a>
 <br />
 Translations: <a href="">🇨🇳 汉语</a>
 </sup>
-
-
-
-
+</div>
 
 
 

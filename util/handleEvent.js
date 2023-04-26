@@ -469,7 +469,7 @@ ${packageName}
 <br />
 Translations: <a href="">🇨🇳 汉语</a>
 </sup>
-
+</div>
 
 
 
