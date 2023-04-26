@@ -1,6 +1,13 @@
 # CHANGELOG 
 
 
+## version:0.1.9-commit:2023/3/3  16:40 
+### feat 
+
+调试完生成的文件和结果
+
+
+
 ## version:0.1.7-commit:2023/3/3  16:25 
 ### fix 
 

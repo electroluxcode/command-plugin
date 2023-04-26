@@ -1,6 +1,6 @@
 {
 	"name": "frontengineerplugin",
-	"version": "0.1.9",
+	"version": "0.1.12",
 	"main": "project.js",
 	"bin": "project.js",
 	"repository": {
@@ -9,9 +9,10 @@
 	},
 	"homepage": "https://gitee.com/electrolux/front-engineer-plugin",
 	"scripts": {
+		"preinstall": "npm install chalk@4 -D",
 		"postinstall": "node install.js  ",
 		"version": "frontengineerplugin -v ",
-		"prepare": "husky install ",
+		"prepare": "husky install  ",
 		"engineer": "frontengineerplugin gui",
 		"test": "jest file/testCase/commonJS",
 		"collection": "jest file/testCase --coverage",
@@ -29,7 +30,7 @@
 			"frontName": "Bili",
 			"behindName": "Electrolux",
 			"src": "https://space.bilibili.com/286773126",
-			"color": "Pink"
+			"color": "pink"
 		}
 	],
 	"keywords": [
@@ -43,7 +44,7 @@
 	],
 	"author": "Electrolux",
 	"license": "ISC",
-	"description": "前端工程化插件.集成eslint,husky,prettier,eslint,npmrc,CICD,testCase,node_proxy 8个主要功能",
+	"description": "前端工程化脚手架.集成eslint,husky,prettier,eslint,npmrc,CICD,testCase,node_proxy,readme生成 9个主要功能",
 	"devDependencies": {
 		"@types/jest": "^29.5.1",
 		"chalk": "^4.1.2",

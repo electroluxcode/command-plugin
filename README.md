@@ -8,7 +8,7 @@ frontengineerplugin
 <sup>
 <br />
 <br />
-<a href="https://gitee.com/electrolux/front-engineer-plugin"><img src="https://img.shields.io/static/v1?label=version&message=v0.1.7&color=blue" alt="npm package" /></a><a href=https://gitee.com/Electrolux><img src="https://img.shields.io/static/v1?label=Gitee&message=Electrolux&color=red" alt="temp" /></a><a href=https://space.bilibili.com/286773126><img src="https://img.shields.io/static/v1?label=Bili&message=Electrolux&color=Pink" alt="temp" /></a>
+<a href="https://gitee.com/electrolux/front-engineer-plugin"><img src="https://img.shields.io/static/v1?label=version&message=v0.1.10&color=blue" alt="npm package" /></a><a href=https://gitee.com/Electrolux><img src="https://img.shields.io/static/v1?label=Gitee&message=Electrolux&color=red" alt="temp" /></a><a href=https://space.bilibili.com/286773126><img src="https://img.shields.io/static/v1?label=Bili&message=Electrolux&color=Pink" alt="temp" /></a>
 <a href="https://gitee.com/electrolux/front-engineer-plugin">   <img src="https://img.shields.io/static/v1?label=Author&message=Electrolux&color=yellow" alt="demos" /></a>
 <a href="https://gitee.com/electrolux/front-engineer-plugin">   <img src="https://img.shields.io/static/v1?label=Contribute&message=welcome&color=green" alt="demos" /></a>
 <br />
@@ -32,6 +32,7 @@ begin
 
 ```shell
 npm install frontengineerplugin -g
+npm install chalk@4 -g
 # 第一种方法，推荐：
 npm run  engineer 
 # 第二种方法：不推荐 项目根目录的package.json中输入
@@ -44,7 +45,26 @@ frontengineerplugin gui
 
 ## Quesion
 
+- 如果你遇到Error [ERR_REQUIRE_ESM]: require() of ES Module 的报错。在你的package.json中加入
+
+```json
+"type": "module",
+```
+
+
+
+- This file is being treated as an ES module because it has a '.js' file extension and 'D:\cicd-test\package.json' contains "type": "module"
+
+```json
+删掉  "type": "module"
+```
+
+
+
+
+
 - 暂时没有适配pnpm的自动script写入，如果你是用这个你需要
+
 
 ```shell
 # 项目根目录的package.json中添加
@@ -244,10 +264,28 @@ more refer:http://eslint.cn/
 
 ### standard_readme
 
-```
+```json
 帮助你生成标准 README.md 的 东西。
 注意。提前要填写好你package.json 的name version homepage 三个字段
 然后注意 如果项目中有 README.md 需要先删掉
+
+默认会生成 author 和 packageName 的label(就是一开始下面并列的牌子)
+如果你想要添加自己的label 可以在package.json中添加 如下格式字段
+
+"label": [
+    {
+        "frontName": "Gitee",
+        "behindName": "Electrolux",
+        "src": "https://gitee.com/Electrolux",
+        "color": "red"
+    },
+    {
+        "frontName": "Bili",
+        "behindName": "Electrolux",
+        "src": "https://space.bilibili.com/286773126",
+        "color": "Pink"
+    }
+],
 ```
 
 

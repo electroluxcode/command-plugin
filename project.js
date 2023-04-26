@@ -165,7 +165,7 @@ function guiFn({ gitFn, prettierFn, eslintFn, npmFn, envFn,CICDFn,corFn ,testFn,
 
           //  spinner.fail(); spinner.succeed();
           spinner.succeed();
-          console.log(chalk.green('success! 项目初始化成功') + '\n');
+          console.log(chalk.green('success! 项目初始化成功 - 使用请参考 https://www.npmjs.com/package/frontengineerplugin | https://gitee.com/electrolux/front-engineer-plugin') + '\n');
         });
     });
 

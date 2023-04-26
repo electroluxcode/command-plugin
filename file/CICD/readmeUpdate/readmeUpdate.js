@@ -1,6 +1,7 @@
 const execSync = require('child_process').execSync;
 const path = require('path');
 const fs = require('fs');
+
 const chalk = require('chalk'); // console.log 的 颜色
 console.log('------------ 自动升级README.md 脚本运行中  ------------');
 
@@ -13,8 +14,8 @@ const mdStr = fs
   const infolog = (msg) => {
     console.log(chalk.grey(`frontengineerplugin - ${msg}`));
 };
-//   line 是有内容的一行
-let line = 19
+//   重要：line 是有内容的一行 ，然后我们如果新增的话line = 0 就好了
+let line = 0
 
 // 1.读取写入
 const packageJsonStr = fs
@@ -41,14 +42,38 @@ for(let i in packageLabel){
   packageLabelRes = packageLabelRes+ text
 }
 
-
+let emoji = [
+  '🚀',
+  '✈️',
+  '🚁',
+  '👍',
+  '🐱',
+  '🐱‍💻',
+  '📋',
+  '🛤',
+  '⚒',
+  '🤖',
+  '👾',
+  '🎠',
+  '🌌',
+  '🍔',
+  '🍿',
+  '🍜',
+  '🍰',
+  '🏆',
+  '🥇',
+  '🎨'
+]
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
 
 //  行数要保持一致，这里我都是19行
 let resText =  `<div align="center"><h1>
 <br/>
-🤖
+${emoji[getRndInteger(0,emoji.length-1)]}
 <br />
-frontengineerplugin
+${packageName}
 <br /><br />
 </h1>
 <sup>

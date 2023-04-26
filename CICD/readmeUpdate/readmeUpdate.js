@@ -14,7 +14,7 @@ const mdStr = fs
     console.log(chalk.grey(`frontengineerplugin - ${msg}`));
 };
 //   line 是有内容的一行
-let line = 19
+let line = 0
 
 // 1.读取写入
 const packageJsonStr = fs
@@ -48,7 +48,7 @@ let resText =  `<div align="center"><h1>
 <br/>
 🤖
 <br />
-frontengineerplugin
+${packageName}
 <br /><br />
 </h1>
 <sup>
