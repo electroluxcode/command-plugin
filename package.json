@@ -1,6 +1,6 @@
 {
 	"name": "frontengineerplugin",
-	"version": "0.1.7",
+	"version": "0.1.9",
 	"main": "project.js",
 	"bin": "project.js",
 	"repository": {
@@ -16,7 +16,7 @@
 		"test": "jest file/testCase/commonJS",
 		"collection": "jest file/testCase --coverage",
 		"test_init": "jest --init",
-		"readmeupdate":"node file/CICD/readmeUpdate/readmeUpdate.js"
+		"readmeupdate": "node file/CICD/readmeUpdate/readmeUpdate.js"
 	},
 	"label": [
 		{

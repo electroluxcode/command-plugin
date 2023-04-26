@@ -1,6 +1,13 @@
 # CHANGELOG 
 
 
+## version:0.1.7-commit:2023/3/3  16:25 
+### fix 
+
+修复全部居中的bug
+
+
+
 ## version:0.1.6-commit:2023/3/3  15:14 
 ### refactor 
 

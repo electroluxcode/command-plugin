@@ -255,22 +255,26 @@ more refer:http://eslint.cn/
 ## Developer
 
 ```js
+一开始安装的时候会通过package.json的bin字段执行 install.js
+
 如果你想添加你自己工程化的东西
 --1.首先将你的文件放进file 文件夹
 --2.修改project.js的 guiFn 方法和 增加 util/handleEvent.js导出的方法
 --3.接下来的测试阶段请输入npm link 
 然后 npm run engineer 
+
 ```
 
 
 
 ## Example
 
-### COMMIT  and CHANGELOG
+### COMMIT  and  CHANGELOG
 
 ```SHELL
 # first 
-npm run frontengineerplugin
+npm install frontengineerplugin -g
+npm run engineer
 # THEN 
 select CICD and husky
 # THEN 
@@ -280,6 +284,40 @@ GO to dir .husky/commit-msg
 GO to dir CICD/CHANGELOG/changeLogAdd 
 然后 把 isAutoUpDate 改成 true
 ```
+
+
+
+### COMMIT  and  Update Readme.md
+
+
+
+if you allow my readme.md script ,then you can
+
+```SHELL
+# first 
+npm install frontengineerplugin -g
+npm run engineer
+# THEN 
+select CICD 
+# THEN 
+GO to dir .husky/commit-msg 
+然后把 os.system("node CICD/readmeUpdate/readmeUpdate.js") 前面的判断符号改成 true
+# THEN
+GO to dir CICD/readmeUpdate/readmeUpdate.js
+然后 把 line 和 resText 进行 替换
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
