@@ -33,7 +33,10 @@ let changeLogFn = (commitMsg, handleTime) => {
   } else {
     fs.writeFileSync(
       path.resolve(process.cwd(), "CHANGELOG.md"),
-      "## CHANGELOG ",
+      `## CHANGELOG 
+      
+      
+      `,
       function (err) {
         if (err) throw err;
         console.log("File is created successfully.");
@@ -47,7 +50,7 @@ let changeLogFn = (commitMsg, handleTime) => {
     .toString();
   const mdStr = fs
     .readFileSync(path.resolve(process.cwd(), "CHANGELOG.md"))
-    .toString();
+    .toString().split('\n');
 
   // 2.组装 文件
   const ver = JSON.parse(packageJsonStr).version;
@@ -57,12 +60,13 @@ let changeLogFn = (commitMsg, handleTime) => {
 
 ${commitMsg.split(":")[1]}
 
-  `;
+`;
 
   try {
     // 1.添加脚本命令
 
-    fs.appendFileSync(path.resolve(process.cwd(), "CHANGELOG.md"), resText);
+    mdStr.splice(2, 0, resText)
+    fs.writeFileSync(path.resolve(process.cwd(), "CHANGELOG.md"), mdStr.join('\n'), 'utf8');
     // 2.
 
     //2. 创造示例

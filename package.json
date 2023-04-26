@@ -1,12 +1,13 @@
 {
 	"name": "frontengineerplugin",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"main": "project.js",
 	"bin": "project.js",
 	"repository": {
 		"type": "gitee",
 		"url": "https://gitee.com/electrolux/front-engineer-plugin"
 	},
+	"homepage": "https://gitee.com/electrolux/front-engineer-plugin",
 	"scripts": {
 		"postinstall": "node install.js  ",
 		"version": "frontengineerplugin -v ",
@@ -16,6 +17,17 @@
 		"collection": "jest file/testCase --coverage",
 		"test_init": "jest --init"
 	},
+	"label":[{
+		"frontName":"Gitee",
+		"behindName":"Electrolux",
+		"src":"https://gitee.com/Electrolux",
+		"color":"red"
+	},{
+		"frontName":"Bili",
+		"behindName":"Electrolux",
+		"src":"https://space.bilibili.com/286773126",
+		"color":"Pink"
+	}],
 	"keywords": [
 		"front",
 		"project",

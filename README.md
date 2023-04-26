@@ -1,6 +1,6 @@
 # frontEngineerPlugin
 
-[![gitee](https://img.shields.io/static/v1?label=Gitee&message=Electrolux&color=blue)](https://gitee.com/Electrolux)[![bili](https://img.shields.io/static/v1?label=Bili&message=Electrolux&color=yellow)](https://space.bilibili.com/286773126)[![Contribute](https://img.shields.io/static/v1?label=Contribute&message=welcome&color=red)](https://gitee.com/Electrolux)[![Size](https://img.shields.io/static/v1?label=Size&message=0.01MB&color=green)](https://gitee.com/Electrolux)
+[![gitee](https://img.shields.io/static/v1?label=Gitee&message=Electrolux&color=blue)](https://gitee.com/Electrolux)[![bili](https://img.shields.io/static/v1?label=Bili&message=Electrolux&color=yellow)](https://space.bilibili.com/286773126)[![Contribute](https://img.shields.io/static/v1?label=Contribute&message=welcome&color=red)](https://gitee.com/Electrolux)[![Size](https://img.shields.io/static/v1?label=Size&message=1MB&color=green)](https://gitee.com/Electrolux)
 
 
 
@@ -233,7 +233,7 @@ more refer:http://eslint.cn/
 ```js
 如果你想添加你自己工程化的东西
 --1.首先将你的文件放进file 文件夹
---2.修改project.js和util/handleEvent.js里面的文件，将你的方法添加进去
+--2.修改project.js的 guiFn 方法和 增加 util/handleEvent.js导出的方法
 --3.接下来的测试阶段请输入npm link 
 然后 npm run engineer 
 ```
@@ -272,3 +272,46 @@ GO to dir CICD/CHANGELOG/changeLogAdd
 ## Support
 
 frontEngineerPlugin is developed by me. Please use frontEngineerPlugin, star it on gitee or even become a [sponsor](https://gitee.com/Electrolux) to support us!
+
+
+
+<div align="center">
+  <h1>
+    <br/>
+    <br/>
+    👍
+    <br />
+    react-use
+    <br />
+    <br />
+    <br />
+    <br />
+  </h1>
+  <sup>
+    <br />
+    <br />
+    <a href="">
+       <img src="https://img.shields.io/npm/v/frontmessageplugin.svg" alt="npm package" />
+    </a>
+    <a href="">
+      <img src="https://img.shields.io/static/v1?label=Gitee&message=Electrolux&color=red"  />
+    </a>
+    <a href="">
+      <img src="https://img.shields.io/npm/dm/frontmessageplugin.svg" />
+    </a>
+    <a href="">
+      <img src="https://img.shields.io/static/v1?label=Bili&message=Electrolux&color=yellow" alt="demos" />
+    </a>
+    <br />
+    </a>.
+    <br />
+    Translations: <a href="">🇨🇳 汉语</a>
+  </sup>
+
+
+
+
+
+
+
+

@@ -16,6 +16,11 @@ const chalk = require('chalk'); // console.log 的 颜色
 const log = (msg) => console.log(`frontengineerplugin - ${msg}`);
 let [, , cmd, ...args] = process.argv;
 
+if(!cmd){
+  log("frontengineerplugin gui可以直接运行")
+  process.exit(1);
+}
+
 cmd = cmd.toLowerCase();
 args.map((v) => {
   return v.toLowerCase();
@@ -54,7 +59,8 @@ const cmdGroup = {
       envFn: handleEvent.envFn,
       CICDFn:handleEvent.CICDFn,
       corFn:handleEvent.corFn,
-      testFn:handleEvent.testFn
+      testFn:handleEvent.testFn,
+      readmeFn:handleEvent.readmeFn
     });
   },
   ['-v']: () => {
@@ -71,7 +77,7 @@ try {
 
 // 第二种方式 ： 用户选择
 
-function guiFn({ gitFn, prettierFn, eslintFn, npmFn, envFn,CICDFn,corFn ,testFn}) {
+function guiFn({ gitFn, prettierFn, eslintFn, npmFn, envFn,CICDFn,corFn ,testFn,readmeFn}) {
   let version = require(path.join(__dirname, 'package.json')).version;
   // console.log(version, '2');
   program
@@ -111,12 +117,14 @@ function guiFn({ gitFn, prettierFn, eslintFn, npmFn, envFn,CICDFn,corFn ,testFn}
               {
                 name: 'cors | nginx && express(写plugin的工具)',
               },
-              
+              {
+                name: 'README | 生成标准格式的README',
+              },
          
             ],
           },
         ])
-        .then((paramater) => {
+        .then(async(paramater) => {
           //{ description: 'sss', author: 'dfd' }
           //   console.log(paramater);
           const spinner = ora('工程化配置中^.^ ' + '\n');
@@ -148,14 +156,30 @@ function guiFn({ gitFn, prettierFn, eslintFn, npmFn, envFn,CICDFn,corFn ,testFn}
           if (paramater['useChoices'].includes('Test case | jest 通用测试用例')) {
             testFn();
           }
+          if (paramater['useChoices'].includes('README | 生成标准格式的README')) {
+            let res = await readmeFn();
+            console.log(chalk.red(res ) + '\n');
+          }
+
+
+
           //  spinner.fail(); spinner.succeed();
           spinner.succeed();
-          console.log(chalk.green('success！ 项目初始化成功') + '\n');
+          console.log(chalk.green('success! 项目初始化成功') + '\n');
         });
     });
 
   program.parse(process.argv); // 解析变量
 }
+
+
+
+
+
+
+
+
+
 
 // 0.写入json
 /*
