@@ -1,6 +1,13 @@
 # CHANGELOG 
 
 
+## version:0.1.12-commit:2023/3/3  19:56 
+### feat 
+
+更改cicd中readmeupdate的运行规则
+
+
+
 ## version:0.1.9-commit:2023/3/3  16:40 
 ### feat 
 

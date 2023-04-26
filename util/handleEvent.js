@@ -338,7 +338,9 @@ let readmeFn = () => {
       infolog(`README.md存在 | 请删掉它后重试。现在退出 `);
       
       resolve(`README.md存在 | 请删掉它后重试。现在退出 `)
+      
       process.exit(1)
+      
     }
     if (!fs.existsSync(path.resolve(process.cwd(), 'package.json'))) {
       infolog(`package.json不存在 | 请npm init -y后重试。现在退出 `);
@@ -363,6 +365,7 @@ let readmeFn = () => {
     ) {
       infolog(`请完善你package.json的 name,author,version,homepage 字段后重试.现在退出`);
       resolve(`请完善你package.json的 name,author,version,homepage 字段后重试.现在退出`)
+      process.exit(1)
     }
 
     // 2.用户选择

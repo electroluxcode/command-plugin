@@ -32,7 +32,7 @@ if (
 !packageName || !packageVersion || !packageAuthor  || !packageHomepage
 ) {
 infolog(`请完善你package.json的 name,author,version,homepage 字段后重试.现在退出`);
-process.exit(1)
+process.exit(0)
 }
 
 let packageLabel = JSON.parse(packageJsonStr).label
