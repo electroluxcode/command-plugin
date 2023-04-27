@@ -3,7 +3,7 @@
 // 请在项目根路径下面使用
 
 // Object.defineProperty(exports, "__esModule", { value: true });
-
+const execSync = require('child_process').execSync;
 const path = require('path');
 const handleEvent = require(path.join(__dirname, 'util', 'handleEvent'));
 
@@ -131,6 +131,8 @@ function guiFn({ gitFn, prettierFn, eslintFn, npmFn, envFn,CICDFn,corFn ,testFn,
           spinner.start();
           // console.log(paramater['useChoices']);
 
+          execSync("npm install chalk@4 commander@9 inquirer@7 ora@4 -D")
+         
           if (paramater['useChoices'].includes('prettier | 代码美化工具')) {
             prettierFn();
           }
@@ -161,6 +163,14 @@ function guiFn({ gitFn, prettierFn, eslintFn, npmFn, envFn,CICDFn,corFn ,testFn,
             console.log(chalk.green("frontengineerplugin - ",res ) + '\n');
           }
 
+
+          if (!fs.existsSync(path.resolve(process.cwd(), '.gitignore'))) {
+            console.log(`.gitignore 不存在 | 自动帮你添加`);
+            fs.writeFileSync(
+              path.resolve(process.cwd(), '.gitignore'),
+              JSON.stringify("node_modules", null, '\t')
+            );
+          }
 
 
           //  spinner.fail(); spinner.succeed();
