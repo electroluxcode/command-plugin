@@ -28,6 +28,7 @@ let packageAuthor = JSON.parse(packageJsonStr).author
 let packageHomepage = JSON.parse(packageJsonStr).homepage
 
 
+
 if (
 !packageName || !packageVersion || !packageAuthor  || !packageHomepage
 ) {

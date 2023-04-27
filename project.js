@@ -164,6 +164,16 @@ function guiFn({ gitFn, prettierFn, eslintFn, npmFn, envFn,CICDFn,corFn ,testFn,
             console.log(chalk.green("frontengineerplugin - ",res ) + '\n');
           }
 
+          infolog(`package.json中可以添加如下字段
+"label":[
+  {
+    "frontName": "Bili",
+    "behindName": "Electrolux",
+    "src": "https://space.bilibili.com/286773126",
+    "color": "pink"
+  }
+]
+`)
 
           if (!fs.existsSync(path.resolve(process.cwd(), '.gitignore'))) {
             console.log(`.gitignore 不存在 | 自动帮你添加`);

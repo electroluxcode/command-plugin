@@ -57,7 +57,7 @@ frontengineerplugin gui
 - This file is being treated as an ES module because it has a '.js' file extension and 'D:\cicd-test\package.json' contains "type": "module"
 
 ```json
-删掉  "type": "module"
+删掉  "type": "module", 加入  "type": "commonjs"
 ```
 
 

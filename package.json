@@ -1,6 +1,6 @@
 {
 	"name": "frontengineerplugin",
-	"version": "0.1.22",
+	"version": "0.1.25",
 	"main": "project.js",
 	"bin": "project.js",
 	"repository": {
