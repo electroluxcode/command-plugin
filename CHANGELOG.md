@@ -1,6 +1,13 @@
 # CHANGELOG 
 
 
+## version:0.1.19-commit:2023/3/4  12:57 
+### 修复用户安装时需要手动添加依赖的bug 
+
+undefined
+
+
+
 
 
 

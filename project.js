@@ -6,6 +6,7 @@
 const execSync = require('child_process').execSync;
 const path = require('path');
 const handleEvent = require(path.join(__dirname, 'util', 'handleEvent'));
+const fs = require('fs'); // console.log 的 颜色
 
 const { program } = require('commander'); // 命令行
 const inquirer = require('inquirer'); // 输入
