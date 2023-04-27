@@ -1,6 +1,13 @@
 # CHANGELOG 
 
 
+## version:0.1.25-commit:2023/3/4  14:28 
+### docs 
+
+添加运行时对用户的说明
+
+
+
 ## version:0.1.22-commit:2023/3/4  14:12 
 ### fix 
 
