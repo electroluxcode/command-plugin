@@ -1,6 +1,13 @@
 # CHANGELOG 
 
 
+## version:0.1.28-commit:2023/3/4  16:6 
+### fix 
+
+修复了之前版本的小问题
+
+
+
 ## version:0.1.25-commit:2023/3/4  14:28 
 ### docs 
 

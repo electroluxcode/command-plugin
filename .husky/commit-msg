@@ -55,9 +55,12 @@ if __name__=="__main__":
                 # 脚手架选择CICD 就可以 开启，作用是自动生成CHANGELOG 并且写入文件
                 if True:
                     os.system("node  CICD/CHANGELOG/changeLogAdd.js " + line)
+                    os.system("git add package.json")
+                    os.system("git add CHANGELOG.md")
                 if False:
                     os.system("node CICD/readmeUpdate/readmeUpdate.js" )
-                    
+                    os.system("git add package.json")
+                    os.system("git add CHANGELOG.md")
                 sys.exit(0)
             else:
                 print(TIPS_INFO)
