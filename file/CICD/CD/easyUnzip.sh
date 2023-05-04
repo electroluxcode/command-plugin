@@ -1,1 +1,1 @@
-unzip -o /root/project/dist.zip -d /root/project/
+unzip -o D:/dist.zip -d /root/project/

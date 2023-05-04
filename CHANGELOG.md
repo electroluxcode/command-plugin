@@ -1,6 +1,13 @@
 # CHANGELOG 
 
 
+## version:0.1.29-commit:2023/3/5  9:6 
+### fix 
+
+添加CICD中对命令行的hook脚本示例
+
+
+
 ## version:0.1.28-commit:2023/3/4  16:6 
 ### fix 
 
