@@ -25,7 +25,15 @@ Translations: <a href="">🇨🇳 汉语</a>
 
 
 
-
+// 红色
+console.log("\x1B[91m --本地ts-build中-- ");
+console.log("\x1B[0m")
+// 绿色
+console.log(`\x1B[92m --本地ts-build中-- \x1B[0m`);
+// 黄色
+console.log(`\x1B[93m --本地ts-build中-- \x1B[0m`);
+// 蓝色
+console.log(`\x1B[94m --本地ts-build中-- \x1B[0m`);
 
 
 

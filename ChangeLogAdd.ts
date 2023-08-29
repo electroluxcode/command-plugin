@@ -81,7 +81,7 @@ ${commitMsg.split(":")[1]}
     );
     execSync(`git add CHANGELOG.md`)
   } catch (e) {
-    console.error("处理package.json失败，请重试", e.message);
+    console.error("处理package.json失败，请重试", e);
     process.exit(1);
   }
 };
@@ -116,7 +116,9 @@ if(isAutoUpDate){
       // add new package.json
       execSync(`git add package.json`)
   } catch (e) {
-      console.error('处理package.json失败，请重试', e.message);
+      console.error('处理package.json失败，请重试', e);
       process.exit(1)
   }
 }
+
+export {}

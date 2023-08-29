@@ -1,8 +1,8 @@
-const execSync = require('child_process').execSync
+const execSync: any = require('child_process').execSync 
 const path = require('path')
 const fs = require('fs')
 
-console.log('------------ 开发自动升级package.json版本号  ------------');
+console.log('------------ 自动升级package.json版本号  ------------');
 
 
 const packageJsonStr = fs.readFileSync(path.resolve(process.cwd(), "package.json")).toString()
@@ -10,7 +10,7 @@ try {
     const packageJson = JSON.parse(packageJsonStr)
     // 升级版本号
     const arr = packageJson.version.split('.')
-    if (arr[2] < 9) {
+    if (arr[2] < 99) {
         arr[2] = +arr[2] + 1
     } else if (arr[1] < 9) {
         arr[1] = +arr[1] + 1
@@ -25,7 +25,9 @@ try {
     fs.writeFileSync(path.resolve(process.cwd(), "package.json"), JSON.stringify(packageJson, null, '\t'))
     // add new package.json
     execSync(`git add package.json`)
-} catch (e) {
+} catch (e:any) {
     console.error('处理package.json失败，请重试', e.message);
     process.exit(1)
 }
+
+// export {}

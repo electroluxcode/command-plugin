@@ -67,3 +67,5 @@ Translations: <a href="">🇨🇳 汉语</a>
 // 第一的数据是vscode 的行数 -1，第二个是 有内容的行号
 mdStr.splice(0, line, resText)
 fs.writeFileSync(path.resolve(process.cwd(), "README.md"), mdStr.join('\n'), 'utf8');
+
+export {}

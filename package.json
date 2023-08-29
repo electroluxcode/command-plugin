@@ -1,15 +1,15 @@
 {
-	"name": "frontengineerplugin",
-	"version": "0.1.30",
+	"name": "command-plugin",
+	"version": "0.0.1",
 	"main": "project.js",
 	"bin": "project.js",
 	"repository": {
 		"type": "gitee",
 		"url": "https://gitee.com/electrolux/front-engineer-plugin"
 	},
+	"types": "module",
 	"homepage": "https://gitee.com/electrolux/front-engineer-plugin",
 	"scripts": {
-		"preinstall": "npm install chalk@4 commander@9 inquirer@7 ora@4 -g ",
 		"postinstall": "node install.js  ",
 		"version": "frontengineerplugin -v ",
 		"prepare": "husky install  ",
@@ -17,7 +17,8 @@
 		"test": "jest file/testCase/commonJS",
 		"collection": "jest file/testCase --coverage",
 		"test_init": "jest --init",
-		"readmeupdate": "node file/CICD/readmeUpdate/readmeUpdate.js"
+		"readmeupdate": "node file/CICD/readmeUpdate/readmeUpdate.js",
+		"deploy": " ts-node VersionUpdate && npm publish    "
 	},
 	"label": [
 		{
@@ -46,23 +47,21 @@
 	"license": "ISC",
 	"description": "前端工程化脚手架.集成eslint,husky,prettier,eslint,npmrc,CICD,testCase,node_proxy,readme生成 9个主要功能",
 	"dependencies": {
-		"chalk": "^4.1.2",
+		"commander": "^9.5.0",
 		"inquirer": "^7.3.3",
 		"ora": "^4.1.1",
-		"commander": "^9.5.0"
+		"typescript": "^5.2.2"
 	},
 	"devDependencies": {
 		"@types/jest": "^29.5.1",
-		
+		"@types/node": "^20.5.7",
 		"eslint": "^7.32.0",
 		"handlebars": "^4.7.7",
 		"husky": "^8.0.3",
 		"i": "^0.3.7",
-		
 		"jest": "^29.5.0",
 		"jest-environment-jsdom": "^29.5.0",
 		"npm": "^9.6.5",
-		
 		"prettier": "^2.8.8",
 		"ts-jest": "^29.1.0"
 	}
