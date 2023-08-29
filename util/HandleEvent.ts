@@ -1,7 +1,10 @@
-const fs = require('fs');
-const execSync: any = require('child_process').execSync;
-const path = require('path');
-const inquirer = require('inquirer'); // 输入
+#!/usr/bin/env node
+import { execSync } from "child_process";
+// @ts-ignore
+import path from "path";
+// @ts-ignore
+import  fs from "fs";
+import inquirer from 'inquirer'; // 输入入
 
 const infolog = (msg) => {
   console.log(`\x1B[94m ${msg} \x1B[0m`);
@@ -9,49 +12,6 @@ const infolog = (msg) => {
 const successlog = (msg) => {
   console.log(`\x1B[92m ${msg} \x1B[0m`);
 };
-
-//  处理添加husky
-let gitFn = () => {
-  if (fs.existsSync(path.resolve(process.cwd(), '.husky'))) {
-    infolog(`.husky存在 | 现在进行覆盖操作`);
-  }
-  const packageJsonStr = fs
-    .readFileSync(path.resolve(process.cwd(), 'package.json'))
-    .toString();
-  try {
-    const packageJson = JSON.parse(packageJsonStr);
-    if (packageJson.scripts['prepare']) {
-      infolog(
-        'prepare script 重复 | 请手动在package.json 添加script |  prepare: husky install'
-      );
-    } else {
-      packageJson.scripts['prepare'] = 'husky install ';
-    }
-
-    fs.writeFileSync(
-      path.resolve(process.cwd(), 'package.json'),
-      JSON.stringify(packageJson, null, '\t')
-    );
-    execSync(`npm install husky@8.0.3 -D`);
-    execSync(`npm run prepare`);
-    // fs.mkdirSync(`.husky`);
-
-    let originPath = path.resolve(__dirname, '..', 'file', 'git', 'commit-msg'); // 库文件
-
-    let targetPath = path.resolve(process.cwd(), '.husky', 'commit-msg'); // 写入工程文件
-    fs.cp(originPath, targetPath, (err) => {
-      if (err) {
-        console.error(err);
-      } else {
-        successlog('husky执行成功 => 现在你的git commit 加上了限制');
-      }
-    });
-  } catch (e: unknown) {
-    console.error('处理package.json失败，请重试', e);
-    process.exit(1);
-  }
-};
-exports.gitFn = gitFn;
 
 
 let readmeFn = () => {
@@ -208,12 +168,9 @@ Translations: <a href="">🇨🇳 汉语</a>
 
 ${selectTextRes}
 
-      `,
-          function (err) {
-            if (err) throw err;
-            console.log('File is created successfully.');
-          }
-        );
+`,
+       
+);
 
 
         resolve("执行成功")
@@ -222,5 +179,6 @@ ${selectTextRes}
       });
   });
 };
-exports.readmeFn = readmeFn;
-export { }
+export{
+  readmeFn
+}

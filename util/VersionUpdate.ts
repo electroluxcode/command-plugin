@@ -1,8 +1,9 @@
-const execSync: any = require('child_process').execSync 
-const path = require('path')
-const fs = require('fs')
+import {execSync} from "child_process"
+import * as path from "path"
+import * as fs from "fs"
+import { infolog } from "./ColorConsole.js";
 
-console.log('------------ 自动升级package.json版本号  ------------');
+infolog('------------ 自动升级package.json版本号  ------------');
 
 
 const packageJsonStr = fs.readFileSync(path.resolve(process.cwd(), "package.json")).toString()
@@ -22,12 +23,12 @@ try {
     }
     const newVersion = arr.join('.')
     packageJson.version = newVersion
+    console.log("newVersion:",newVersion)
     fs.writeFileSync(path.resolve(process.cwd(), "package.json"), JSON.stringify(packageJson, null, '\t'))
     // add new package.json
-    execSync(`git add package.json`)
+    // execSync(`git add package.json`)
 } catch (e:any) {
     console.error('处理package.json失败，请重试', e.message);
     process.exit(1)
 }
 
-// export {}

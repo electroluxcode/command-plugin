@@ -2,7 +2,7 @@
 <br/>
 🤖
 <br />
-frontengineerplugin
+command-plugin
 <br /><br />
 </h1>
 <sup>
@@ -35,10 +35,10 @@ console.log(`\x1B[93m --本地ts-build中-- \x1B[0m`);
 // 蓝色
 console.log(`\x1B[94m --本地ts-build中-- \x1B[0m`);
 
+npm uninstall -g  chalk commander inquirer  
 
 
-
-<img src="https://cdn.jsdelivr.net/npm/frontengineerplugin/img/main.png"/>
+<img src="https://cdn.jsdelivr.net/npm/command-plugin/img/main.png"/>
 
 
 
@@ -47,13 +47,13 @@ console.log(`\x1B[94m --本地ts-build中-- \x1B[0m`);
 begin
 
 ```shell
-npm install frontengineerplugin -g
+npm install command-plugin -g
 # 第一种方法，推荐：
 npm run  engineer 
 # 第二种方法：不推荐 项目根目录的package.json中输入
-frontengineerplugin install prettier husky env eslint npm
+command-plugin install prettier husky env eslint npm
 # 第三种方法：命令行下面 输入
-frontengineerplugin gui
+command-plugin gui
 ```
 
 
@@ -84,7 +84,7 @@ frontengineerplugin gui
 ```shell
 # 项目根目录的package.json中添加
 {
-	"engineer":"frontengineerplugin gui "
+	"engineer":"command-plugin gui "
 }
 
 # 然后运行 npm run engineer
@@ -98,7 +98,7 @@ frontengineerplugin gui
 
 ## Contain
 
-<img src="https://cdn.jsdelivr.net/npm/frontengineerplugin/img/main.png">
+<img src="https://cdn.jsdelivr.net/npm/command-plugin/img/main.png">
 
 
 
@@ -326,7 +326,7 @@ more refer:http://eslint.cn/
 
 ```SHELL
 # first 
-npm install frontengineerplugin -g
+npm install command-plugin -g
 npm run engineer
 # THEN 
 select CICD and husky
@@ -348,7 +348,7 @@ if you allow my readme.md script ,then you can
 
 ```SHELL
 # first 
-npm install frontengineerplugin -g
+npm install command-plugin -g
 npm run engineer
 # THEN 
 select CICD 
@@ -376,17 +376,17 @@ GO to dir CICD/readmeUpdate/readmeUpdate.js
 
 ## Badge
 
-[![Size](https://img.shields.io/static/v1?label=plugin&message=frontEngineerPlugin&color=green)](https://gitee.com/Electrolux)
+[![Size](https://img.shields.io/static/v1?label=plugin&message=command-plugin&color=green)](https://gitee.com/Electrolux)
 
 ```
-[![Size](https://img.shields.io/static/v1?label=plugin&message=frontEngineerPlugin&color=green)](https://gitee.com/Electrolux)
+[![Size](https://img.shields.io/static/v1?label=plugin&message=command-plugin&color=green)](https://gitee.com/Electrolux)
 ```
 
 
 
 ## Support
 
-frontEngineerPlugin is developed by me. Please use frontEngineerPlugin, star it on gitee or even become a [sponsor](https://gitee.com/Electrolux) to support us!
+command-plugin is developed by me. Please use command-plugin, star it on gitee or even become a [sponsor](https://gitee.com/Electrolux) to support us!
 
 
 

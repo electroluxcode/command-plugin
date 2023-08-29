@@ -6,10 +6,10 @@ console.log("------------ CHANGELOG生成  ------------");
 const chalk = require("chalk"); // console.log 的 颜色
 
 const infolog = (msg) => {
-  console.log(chalk.grey(`frontengineerplugin - ${msg}`));
+  console.log(chalk.grey(`command-plugin - ${msg}`));
 };
 const successlog = (msg) => {
-  console.log(chalk.green(`frontengineerplugin - ${msg}`));
+  console.log(chalk.green(`command-plugin - ${msg}`));
 };
 
 let date = new Date();

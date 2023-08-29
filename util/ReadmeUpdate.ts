@@ -11,7 +11,7 @@ const mdStr = fs
 
 
   const infolog = (msg) => {
-    console.log(chalk.grey(`frontengineerplugin - ${msg}`));
+    console.log(chalk.grey(`command-plugin - ${msg}`));
 };
 //   line 是有内容的一行
 let line = 0
