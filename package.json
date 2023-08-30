@@ -1,6 +1,6 @@
 {
 	"name": "command-plugin",
-	"version": "0.0.13",
+	"version": "0.0.15",
 	"main": "Project.js",
 	"bin": "Project.js",
 	"repository": {
@@ -10,11 +10,10 @@
 	"type": "module",
 	"homepage": "https://gitee.com/electrolux/front-engineer-plugin",
 	"scripts": {
-		"postinstall": "node Install.js  ",
 		"version": "command-plugin -v ",
 		"engineer": "command-plugin gui",
 		"readmeupdate": "node file/CICD/readmeUpdate/readmeUpdate.js",
-		"deploy": "node util/VersionUpdate.js && npm publish"
+		"deploy": "node VersionUpdate.js && npm publish"
 	},
 	"label": [
 		{

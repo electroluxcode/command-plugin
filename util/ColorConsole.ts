@@ -4,3 +4,7 @@ export const infolog = (msg) => {
 export const successlog = (msg) => {
     console.log(`\x1B[92m ${msg} \x1B[0m`);
 };
+
+export const errorlog = (msg) => {
+    console.log(`\x1B[91m ${msg} \x1B[0m`);
+};

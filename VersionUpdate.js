@@ -1,7 +1,7 @@
 import { execSync } from "child_process";
 import * as path from "path";
 import * as fs from "fs";
-import { infolog } from "./ColorConsole.js";
+import { infolog } from "./util/ColorConsole.js";
 function VersionUpdate() {
     try {
         infolog('------------ 升级package.json版本号  ------------');
@@ -33,4 +33,4 @@ function VersionUpdate() {
         process.exit(1);
     }
 }
-export { VersionUpdate };
+VersionUpdate()

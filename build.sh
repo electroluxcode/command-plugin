@@ -1,5 +1,5 @@
 #!/bin/bash
-find . -type f -iname \*.js -delete
+# find . -type f -iname \*.js -delete
 
 echo -e "\e[91m --本地ts-build中--"
 tsc --project ./

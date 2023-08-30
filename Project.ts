@@ -7,13 +7,12 @@
 // Object.defineProperty(exports, "__esModule", { value: true });
 import { program } from 'commander'; // 命令行
 // @ts-ignore
-import  inquirer from "inquirer";
+import inquirer from "inquirer";
+
 // @ts-ignore
-import  ora from "ora";
+import path from "path";
 // @ts-ignore
-import  path from "path";
-// @ts-ignore
-import  fs from "fs";
+import fs from "fs";
 import { successlog, infolog } from "./util/ColorConsole.js";
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
@@ -23,6 +22,38 @@ let common = path.join(__dirname, 'util', 'handleEvent.js');
 let temp = path.join(__dirname, 'package.json')
 
 const ver = JSON.parse(fs.readFileSync(`${temp}`, 'utf8'));
+
+
+function guiFn({ CommitFn,OtherFn }) {
+    let version = ver.version;
+    program.version(version).command('gui')
+        .description('Electrolux 的 工程化配置')
+        .action((name) => {
+            inquirer.prompt([
+                {
+                    type: 'list',
+                    name: 'useChoices',
+                    pageSize: 20,
+                    message: '前端工程化配置选项：',
+                    choices: [
+                        "commit","other plugin"
+                    ],
+                },
+            ])
+            .then(async (paramater) => {
+                if (paramater['useChoices']=='commit') {
+                    let res = await CommitFn();
+                    // successlog(JSON.stringify(res));
+                }
+                if (paramater['useChoices']=="other plugin") {
+                    let res = await OtherFn();
+                }
+                successlog('success! 项目初始化成功 - 使用请参考 https://www.npmjs.com/package/command-plugin | https://gitee.com/electrolux/front-engineer-plugin');
+            });
+        });
+    program.parse(process.argv); // 解析变量
+}
+
 import(`file:///${common}`).then((handleEvent) => {
     // command-plugin install husky prettier gitignore
     const log = (msg) => console.log(`command-plugin - ${msg}`);
@@ -39,12 +70,13 @@ import(`file:///${common}`).then((handleEvent) => {
     const cmdGroup = {
         install: (args) => {
             if (args.includes('help')) {
-                console.log("帮助:zzz");
+                infolog(`版本:${ver.version}-command-plugin gui 启动`)
             }
         },
         gui: () => {
             guiFn({
-                readmeFn: handleEvent.readmeFn
+                CommitFn: handleEvent.CommitFn,
+                OtherFn:handleEvent.OtherFn
             });
         },
         ['-v']: () => {
@@ -58,60 +90,6 @@ import(`file:///${common}`).then((handleEvent) => {
         console.error(e instanceof Error ? `command-plugin - ${e.message}` : e);
         process.exit(1);
     }
-    // 第二种方式 ： 用户选择
-    function guiFn({ readmeFn }) {
-        let version = ver.version;
-        // console.log(version, '2');
-        program
-            .version(version)
-            .command('gui')
-            .description('Electrolux 的 工程化配置')
-            .action((name) => {
-            inquirer
-                .prompt([
-                {
-                    type: 'checkbox',
-                    name: 'useChoices',
-                    pageSize: 20,
-                    message: '前端工程化配置选项：',
-                    choices: [
-                     
-                        {
-                            name: 'README | 生成标准格式的README',
-                        },
-                    ],
-                },
-            ])
-                .then(async (paramater) => {
-                //{ description: 'sss', author: 'dfd' }
-                //   console.log(paramater);
-                const spinner = ora('工程化配置中^.^ ' + '\n');
-                spinner.start();
-                // console.log(paramater['useChoices']);
-                if (paramater['useChoices'].includes('README | 生成标准格式的README')) {
-                    let res = await readmeFn();
-                    successlog(res);
-                }
-                infolog(`package.json中可以添加如下字段
-"label":[
-  {
-    "frontName": "Bili",
-    "behindName": "Electrolux",
-    "src": "https://space.bilibili.com/286773126",
-    "color": "pink"
-  }
-]
-`);
-                // if (!fs.existsSync(path.resolve(process.cwd(), '.gitignore'))) {
-                //     console.log(`.gitignore 不存在 | 自动帮你添加`);
-                //     fs.writeFileSync(path.resolve(process.cwd(), '.gitignore'), JSON.stringify("node_modules", null, '\t'));
-                // }
-                //  spinner.fail(); spinner.succeed();
-                spinner.succeed();
-                successlog('success! 项目初始化成功 - 使用请参考 https://www.npmjs.com/package/command-plugin | https://gitee.com/electrolux/front-engineer-plugin');
-            });
-        });
-        program.parse(process.argv); // 解析变量
-    }
+    
 });
 
