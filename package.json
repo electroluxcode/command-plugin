@@ -1,6 +1,6 @@
 {
 	"name": "command-plugin",
-	"version": "0.0.15",
+	"version": "0.0.18",
 	"main": "Project.js",
 	"bin": "Project.js",
 	"repository": {
@@ -40,7 +40,7 @@
 	],
 	"author": "Electrolux",
 	"license": "ISC",
-	"description": "前端工程化脚手架.集成eslint,husky,prettier,eslint,npmrc,CICD,testCase,node_proxy,readme生成 9个主要功能",
+	"description": "提交规范和自动化command脚本",
 	"dependencies": {
 		"command-plugin": "0.0.13",
 		"commander": "^9.5.0",
