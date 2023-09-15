@@ -20,11 +20,12 @@ let CommitFn = async () => {
     }
     if (fs.existsSync(path.resolve(process.cwd(), 'commitlint.config.js'))) {
         errorlog("commitlint.config.js存在,请注意");
+        errorlog("注意 如果开头的commit 信息是 小写会报错。例如 git commit -m 'feat(router): ddd',改成feat(router): Ddd提交成功");
     }
     let res = await inquirer.prompt(CommitInquiredParam());
-    console.log(res);
+    // console.log(res)
     let CommitMsg = `${res.CommitType}(${res.CommitScope}): ${res.CommitMessage}`;
-    // console.log("CommitMsg:",CommitMsg)
+    console.log("CommitMsg:", CommitMsg);
     if (res.CommitVersion) {
         VersionUpdate();
     }

@@ -12,23 +12,9 @@
 	"scripts": {
 		"version": "command-plugin -v ",
 		"engineer": "command-plugin gui",
-		"readmeupdate": "node file/CICD/readmeUpdate/readmeUpdate.js",
 		"deploy": "node VersionUpdate.js && npm publish"
 	},
-	"label": [
-		{
-			"frontName": "Gitee",
-			"behindName": "Electrolux",
-			"src": "https://gitee.com/Electrolux",
-			"color": "red"
-		},
-		{
-			"frontName": "Bili",
-			"behindName": "Electrolux",
-			"src": "https://space.bilibili.com/286773126",
-			"color": "pink"
-		}
-	],
+
 	"keywords": [
 		"front",
 		"project",

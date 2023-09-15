@@ -2,8 +2,6 @@
 
 
 // 请在项目根路径下面使用
-//  调试
-// 请在项目根路径下面使用
 // Object.defineProperty(exports, "__esModule", { value: true });
 import { program } from 'commander'; // 命令行
 // @ts-ignore
@@ -36,7 +34,8 @@ function guiFn({ CommitFn,OtherFn }) {
                     pageSize: 20,
                     message: '前端工程化配置选项：',
                     choices: [
-                        "commit","other plugin"
+                        "commit",
+                        "other plugin"
                     ],
                 },
             ])
